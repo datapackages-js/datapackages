@@ -1,0 +1,66 @@
+Here is my solution with MDC (Huge thanks to @chdecultot and @hanyujie2002 for the inspiration) :
+
+app/plugins/mermaid.client.ts
+
+import mermaid from 'mermaid'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.provide('mermaid', () => mermaid)
+})
+app/components/content/Mermaid.vue
+
+<script setup lang="ts">
+const { $mermaid } = useNuxtApp()
+const mermaidContainer = ref<HTMLDivElement | null>(null)
+
+onMounted(async () => {
+  if (mermaidContainer.value) {
+    const definition = mermaidContainer.value.textContent?.trim() ?? ''
+    if (definition) {
+      mermaidContainer.value.textContent = definition
+      await nextTick()
+      try {
+        $mermaid().initialize({ startOnLoad: false, theme: 'default' })
+        await $mermaid().run({
+          nodes: [mermaidContainer.value],
+        })
+      }
+      catch (e) {
+        console.error('Error running Mermaid:', e)
+        mermaidContainer.value.innerHTML = '⚠️ Mermaid Chart Syntax Error'
+      }
+    }
+  }
+})
+</script>
+
+<template>
+  <div ref="mermaidContainer" class="mermaid">
+    <slot />
+  </div>
+</template>
+
+<style>
+.mermaid:not([data-processed]) {
+  color: transparent;
+}
+</style>
+app/types/mermaid.d.ts
+
+import type { Mermaid } from 'mermaid'
+
+declare module '#app' {
+  interface NuxtApp {
+    $mermaid: () => Mermaid
+  }
+}
+
+export {}
+content/index.md
+
+::mermaid
+<pre>
+  flowchart LR
+      start --> stop
+</pre>
+::

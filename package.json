@@ -1,0 +1,22 @@
+{
+  "name": "datapackages-root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces",
+    "test:coverage": "vitest run --coverage",
+    "posttest:coverage": "node packages/dataset/scripts/update-coverage-docs.cjs",
+    "build": "npm run build --workspaces",
+    "update-sources": "npm run update-sources --workspaces --if-present",
+    "changelog": "changelogen --output CHANGELOG.md"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.18",
+    "changelogen": "^0.6.2",
+    "typescript": "^5.0.0",
+    "unbuild": "^3.0.0",
+    "vitest": "^4.0.18"
+  }
+}

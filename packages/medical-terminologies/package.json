@@ -1,0 +1,59 @@
+{
+  "name": "@datapackages/medical-terminologies",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./france": {
+      "types": "./dist/france/index.d.ts",
+      "import": "./dist/france/index.mjs",
+      "require": "./dist/france/index.cjs"
+    },
+    "./france/acte-specifique": {
+      "types": "./dist/france/acte-specifique/index.d.ts",
+      "import": "./dist/france/acte-specifique/index.mjs",
+      "require": "./dist/france/acte-specifique/index.cjs"
+    },
+    "./france/expertise": {
+      "types": "./dist/france/expertise/index.d.ts",
+      "import": "./dist/france/expertise/index.mjs",
+      "require": "./dist/france/expertise/index.cjs"
+    },
+    "./france/profession": {
+      "types": "./dist/france/profession/index.d.ts",
+      "import": "./dist/france/profession/index.mjs",
+      "require": "./dist/france/profession/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/sync-exports.js && unbuild",
+    "dev": "unbuild --stub",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "update-sources": "datapackage update-source",
+    "sync-exports": "node scripts/sync-exports.js",
+    "changelog": "changelogen --dir . --output CHANGELOG.md"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "unbuild": "^3.3.1",
+    "vitest": "^3.0.5"
+  },
+  "dependencies": {
+    "@datapackages/dataset": "^0.0.0",
+    "@datapackages/plugin-search": "^0.0.0",
+    "consola": "^3.4.2"
+  }
+}

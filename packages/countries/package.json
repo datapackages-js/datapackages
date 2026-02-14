@@ -1,0 +1,40 @@
+{
+  "name": "@datapackages/countries",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./search.index.json": "./src/search.index.json",
+    "./data.ndjson": "./src/data.ndjson"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "update-sources": "datapackage update-source",
+    "changelog": "changelogen --dir . --output CHANGELOG.md"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "typescript": "^5.8.2",
+    "unbuild": "^3.3.1",
+    "vitest": "^3.0.5"
+  },
+  "dependencies": {
+    "@datapackages/dataset": "^0.0.0",
+    "@datapackages/plugin-search": "^0.0.0"
+  }
+}

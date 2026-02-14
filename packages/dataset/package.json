@@ -1,0 +1,44 @@
+{
+  "name": "@datapackages/dataset",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./scripts/update-sources.js": "./scripts/update-sources.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "datapackage": "./bin/datapackage.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "scripts"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "changelog": "changelogen --dir . --output CHANGELOG.md"
+  },
+  "dependencies": {
+    "consola": "^3.4.2",
+    "jiti": "^2.6.1"
+  },
+  "devDependencies": {
+    "@datapackages/plugin-search": "^0.0.0",
+    "citty": "^0.2.1",
+    "typescript": "^5.8.2",
+    "unbuild": "^3.3.1",
+    "vitest": "^3.0.5"
+  }
+}

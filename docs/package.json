@@ -1,0 +1,16 @@
+{
+  "name": "datapackages-docs",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "docus": "latest",
+    "mermaid": "^11.12.2",
+    "nuxt": "^4.2.2"
+  }
+}
