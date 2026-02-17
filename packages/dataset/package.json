@@ -1,7 +1,6 @@
 {
   "name": "@datapackages/dataset",
   "version": "0.1.0",
-  "private": false,
   "publishConfig": {
     "access": "public"
   },
@@ -29,7 +28,7 @@
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "changelog": "changelogen --dir . --output CHANGELOG.md"
   },

@@ -24,12 +24,12 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Build packages
-        run: npm run build --workspaces
+        run: yarn build
 
       - name: Publish to npm
-        run: npm publish --workspaces --access public
+        run: yarn workspaces foreach -A --no-fallback npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

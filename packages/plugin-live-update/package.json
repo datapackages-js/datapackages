@@ -1,7 +1,6 @@
 {
   "name": "@datapackages/plugin-live-update",
   "version": "0.1.0",
-  "private": false,
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +22,7 @@
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "test:watch": "vitest"
   },
   "dependencies": {

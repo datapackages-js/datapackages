@@ -1,7 +1,6 @@
 {
   "name": "@datapackages/medical-terminologies",
   "version": "0.1.0",
-  "private": false,
   "publishConfig": {
     "access": "public"
   },
@@ -43,7 +42,7 @@
   "scripts": {
     "build": "node scripts/sync-exports.js && unbuild",
     "dev": "unbuild --stub",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "update-sources": "datapackage update-source",
     "sync-exports": "node scripts/sync-exports.js",
