@@ -1,7 +1,10 @@
 {
   "name": "@datapackages/plugin-cache",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -25,7 +28,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@datapackages/dataset": "^0.0.0"
+    "@datapackages/dataset": "^0.1.0"
   },
   "devDependencies": {
     "typescript": "^5.8.2",

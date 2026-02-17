@@ -1,7 +1,10 @@
 {
   "name": "@datapackages/plugin-search",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -23,7 +26,7 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@datapackages/dataset": "^0.0.0",
+    "@datapackages/dataset": "^0.1.0",
     "typescript": "^5.8.2",
     "unbuild": "^3.3.1",
     "vitest": "^3.0.5"
@@ -32,6 +35,6 @@
     "@orama/orama": "^3.1.18"
   },
   "peerDependencies": {
-    "@datapackages/dataset": "^0.0.0"
+    "@datapackages/dataset": "^0.1.0"
   }
 }
